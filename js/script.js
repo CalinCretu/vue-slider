@@ -32,18 +32,17 @@ createApp({
   methods: {
     nextImage() {
       this.currentIndex++;
-      if (this.currentIndex > this.slides.images.length - 1) {
+      if (this.currentIndex > this.slides.length - 1) {
         this.currentIndex = 0;
       }
     },
     prevImage() {
       this.currentIndex--;
       if (this.currentIndex < 0) {
-        this.currentIndex = this.slides.images.length - 1;
+        this.currentIndex = this.slides.length - 1;
       }
     },
     changeImage(thumbIndex) {
-      console.log("Ho cliccato sulla thumb ad indice ", thumbIndex)
       this.currentIndex = thumbIndex;
     }
   },
