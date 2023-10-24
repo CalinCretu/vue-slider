@@ -29,6 +29,7 @@ createApp({
       ],
     }
   },
+
   methods: {
     nextImage() {
       this.currentIndex++;
@@ -46,4 +47,8 @@ createApp({
       this.currentIndex = thumbIndex;
     }
   },
+  mounted() {
+    setInterval(this.nextImage, 3000);
+  },
 }).mount('#app');
+
