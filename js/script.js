@@ -1,5 +1,4 @@
 const { createApp } = Vue;
-
 createApp({
   data: () => {
     return {
@@ -29,7 +28,6 @@ createApp({
       ],
     }
   },
-
   methods: {
     nextImage() {
       this.currentIndex++;
@@ -48,7 +46,13 @@ createApp({
     }
   },
   mounted() {
-    setInterval(this.nextImage, 3000);
+    const myInterval = setInterval(this.nextImage, 3000);
+    document.querySelector(".slider-wrapper").addEventListener("mouseenter", () => {
+      clearInterval(myInterval);
+    });
+    document.querySelector(".slider-wrapper").addEventListener("mouseleave", () => {
+      setInterval(this.nextImage, 3000);
+    });
   },
 }).mount('#app');
 
